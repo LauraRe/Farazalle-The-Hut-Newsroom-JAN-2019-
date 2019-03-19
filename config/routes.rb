@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'categories/show'
-  devise_for :users, controllers: {
-	registrations: :registrations,
-	confirmations: :confirmations
+	get 'categories/show'
+	devise_for :users, controllers: {
+		registrations: :registrations,
+		confirmations: :confirmations
 	}
 
 	root controller: :articles, action: :index
