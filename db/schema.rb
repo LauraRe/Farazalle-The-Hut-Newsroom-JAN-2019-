@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2019_03_18_083136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.bigint "category_id"
     t.string "status"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
@@ -40,7 +40,17 @@ ActiveRecord::Schema.define(version: 2019_03_18_083136) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "temp_password"
+    t.integer "role", default: 0
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
